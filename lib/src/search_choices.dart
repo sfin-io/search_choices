@@ -870,7 +870,7 @@ class SearchChoices<T> extends FormField<T> {
   }
 
   bool get isEnabled =>
-      (items?.isNotEmpty ?? false || futureSearchFn != null) &&
+      // (items?.isNotEmpty ?? false || futureSearchFn != null) &&
       (onChanged != null || onChanged is Function);
 
   @override
