@@ -68,6 +68,9 @@ class DropdownDialog<T> extends StatefulWidget {
   /// See SearchChoices class.
   final Color? iconDisabledColor;
 
+  /// checkbox color
+  final Color? checkBoxActiveColor;
+
   /// See SearchChoices class.
   final bool rightToLeft;
 
@@ -210,6 +213,7 @@ class DropdownDialog<T> extends StatefulWidget {
     this.listValidator,
     this.buildFutureFilterOrOrderButton,
     this.searchResultDisplayFn,
+    this.checkBoxActiveColor,
   }) : super(key: key);
 
   _DropdownDialogState<T> createState() => _DropdownDialogState<T>();
@@ -713,6 +717,7 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
                   isItemSelected
                       ? Icons.check_box
                       : Icons.check_box_outline_blank,
+                  color: widget.checkBoxActiveColor,
                 ),
                 SizedBox(
                   width: 7,

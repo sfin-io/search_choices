@@ -74,6 +74,9 @@ class SearchChoices<T> extends FormField<T> {
   /// [iconDisabledColor] [Color] to be used for disabled icons.
   final Color? iconDisabledColor;
 
+  /// [checkBoxActiveColor] [Color] to be used for checkbox in case of multiple choices.
+  final Color? checkBoxActiveColor;
+
   /// [iconSize] for the icons next to the selected value (icon and clearIcon).
   final double iconSize;
 
@@ -585,6 +588,7 @@ class SearchChoices<T> extends FormField<T> {
     this.giveMeThePop,
     this.buildFutureFilterOrOrderButton,
     this.searchResultDisplayFn,
+    this.checkBoxActiveColor,
   })  : multipleSelection = false,
         selectedItems = const [],
         futureSelectedValues = null,
@@ -804,6 +808,7 @@ class SearchChoices<T> extends FormField<T> {
     this.giveMeThePop,
     this.buildFutureFilterOrOrderButton,
     this.searchResultDisplayFn,
+    this.checkBoxActiveColor,
   })  : multipleSelection = true,
         value = null,
         super(
@@ -1190,6 +1195,7 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
         listValidator: widget.listValidator,
         buildFutureFilterOrOrderButton: widget.buildFutureFilterOrOrderButton,
         searchResultDisplayFn: widget.searchResultDisplayFn,
+        checkBoxActiveColor: widget.checkBoxActiveColor,
       ));
     });
   }
