@@ -1,3 +1,7 @@
+## 2.2.9
+
+* Removed assert that prevented the use of padding with fieldDecoration. Thanks @nikpelgr https://github.com/lcuis/search_choices/issues/127
+
 ## 2.2.8
 
 * Upgraded to Gradle 8.6.0, Kotlin 2.0.20 and JVM 1.8. Thanks @snmeric https://github.com/lcuis/search_choices/pull/126

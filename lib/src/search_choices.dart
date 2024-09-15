@@ -861,8 +861,6 @@ class SearchChoices<T> extends FormField<T> {
         "use either underline or fieldDecoration");
     assert(fieldPresentationFn == null || underline == null,
         "use either underline or fieldPresentationFn");
-    assert(fieldDecoration == null || padding == null,
-        "use either padding or fieldDecoration");
     assert(fieldPresentationFn == null || padding == null,
         "use either padding or fieldPresentationFn");
     assert(dialogBox || showDialogFn == null,
