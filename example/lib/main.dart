@@ -2299,7 +2299,7 @@ class MyAppState extends State<MyApp> {
             child: Scrollbar(
               controller: scrollController,
               thumbVisibility: thumbVisibility,
-              child: itemsToDisplay.length == 0
+              child: itemsToDisplay.isEmpty
                   ? emptyListWidget
                   : ListView.builder(
                       controller: scrollController,

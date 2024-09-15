@@ -1,3 +1,7 @@
+## 2.2.8
+
+* Upgraded to Gradle 8.6.0, Kotlin 2.0.20 and JVM 1.8. Thanks @snmeric https://github.com/lcuis/search_choices/pull/126
+
 ## 2.2.7
 
 * lints and dependabot issues corrected

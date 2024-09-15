@@ -336,7 +336,7 @@ class SearchChoices<T> extends FormField<T> {
   ///               displayItem,
   ///         }) {
   ///           return Expanded(
-  ///               child: itemsToDisplay.length == 0
+  ///               child: itemsToDisplay.isEmpty
   ///                   ? emptyListWidget
   ///                   : SingleChildScrollView(
   ///                       child: Wrap(
