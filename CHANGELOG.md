@@ -1,3 +1,7 @@
+## 2.2.10
+
+* Got rid of deprecated code assertUniqueValue and added warning on sendSelection caught execution.
+
 ## 2.2.9
 
 * Removed assert that prevented the use of padding with fieldDecoration. Thanks @nikpelgr https://github.com/lcuis/search_choices/issues/127

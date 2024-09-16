@@ -112,7 +112,6 @@ Search choices Widget with a single choice that opens a dialog or a menu to let 
     Function? selectedValueWidgetFn,
     TextInputType keyboardType = TextInputType.text,
     Function? validator,
-    bool assertUniqueValue = true,
     Function? displayItem,
     bool dialogBox = true,
     BoxConstraints? menuConstraints,
@@ -212,7 +211,6 @@ Search choices Widget with a single choice that opens a dialog or a menu to let 
 * selectedValueWidgetFn Function with parameter: item returning Widget to be used to display the selected value.
 * keyboardType used for the search.
 * validator Function with parameter: value returning String displayed below selected value when not valid and null when valid.
-* assertUniqueValue whether to run a consistency check of the list of items.
 * displayItem Function with parameters: item, selected returning Widget to be displayed in the search list.
 * dialogBox whether the search should be displayed as a dialog box or as a menu below the selected value if any.
 * menuConstraints BoxConstraints used to define the zone where to display the search menu. Example: BoxConstraints.tight(Size.fromHeight(250)) . Not to be used for dialogBox = true.
