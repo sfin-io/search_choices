@@ -38,7 +38,3 @@ android {
         disable 'InvalidPackage'
     }
 }
-
-kotlin {
-    jvmToolchain(18)
-}

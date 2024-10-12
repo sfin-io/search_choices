@@ -1,3 +1,7 @@
+## 2.2.11
+
+* Removed the kotlin.jvmToolchain specification from the build.gradle . Thanks @pnilkanth12 https://github.com/lcuis/search_choices/issues/128
+
 ## 2.2.10
 
 * Got rid of deprecated code assertUniqueValue and added warning on sendSelection caught execution.
