@@ -372,9 +372,7 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
       duration: const Duration(milliseconds: 300),
       child: Card(
         color: widget.menuBackgroundColor,
-        margin: EdgeInsets.symmetric(
-            vertical: widget.dialogBox ? 10 : 5,
-            horizontal: widget.dialogBox ? 10 : 4),
+        margin: EdgeInsets.zero,
         child: Container(
           constraints: widget.menuConstraints,
           padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
