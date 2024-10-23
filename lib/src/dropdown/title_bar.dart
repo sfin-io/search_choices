@@ -151,7 +151,6 @@ class TitleBar extends StatelessWidget {
             futureSearchOrderOptions != null ||
             futureSearchFilterOptions != null)
         ? Container(
-            margin: EdgeInsets.only(bottom: 8),
             child: Row(
                 textDirection:
                     rightToLeft ? TextDirection.rtl : TextDirection.ltr,
