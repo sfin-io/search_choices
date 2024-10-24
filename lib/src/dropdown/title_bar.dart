@@ -42,6 +42,9 @@ class TitleBar extends StatelessWidget {
   final PointerThisPlease<bool?> orderAsc;
 
   /// See SearchChoices class.
+  final bool showSearchError;
+
+  /// See SearchChoices class.
   final Widget Function({
     required bool filter,
     required BuildContext context,
@@ -89,6 +92,7 @@ class TitleBar extends StatelessWidget {
     required this.filters,
     required this.orderBy,
     required this.orderAsc,
+    required this.showSearchError,
   }) : super(key: key);
 
   @override
@@ -161,10 +165,12 @@ class TitleBar extends StatelessWidget {
                   Column(
                     children: <Widget>[
                       doneButtonWidget ?? SizedBox.shrink(),
-                      TitleValidatorOutputWidget(
-                          dialogBox: dialogBox,
-                          rightToLeft: rightToLeft,
-                          validResult: validResult),
+                      showSearchError
+                          ? TitleValidatorOutputWidget(
+                              dialogBox: dialogBox,
+                              rightToLeft: rightToLeft,
+                              validResult: validResult)
+                          : Container(),
                     ],
                   ),
                 ]),
@@ -173,10 +179,12 @@ class TitleBar extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 doneButtonWidget ?? SizedBox.shrink(),
-                TitleValidatorOutputWidget(
-                    dialogBox: dialogBox,
-                    rightToLeft: rightToLeft,
-                    validResult: validResult),
+                showSearchError
+                    ? TitleValidatorOutputWidget(
+                        dialogBox: dialogBox,
+                        rightToLeft: rightToLeft,
+                        validResult: validResult)
+                    : Container(),
               ],
             ),
           );

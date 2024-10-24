@@ -77,6 +77,9 @@ class DropdownDialog<T> extends StatefulWidget {
   /// See SearchChoices class.
   final bool autofocus;
 
+  /// See SearchChoices class.
+  final bool showSearchError;
+
   /// Used for the setOpenDialog. This allows the dialogBox to be opened with
   /// search terms preset from an external button as shown in example `Single
   /// dialog open and set search terms`.
@@ -214,6 +217,7 @@ class DropdownDialog<T> extends StatefulWidget {
     this.buildFutureFilterOrOrderButton,
     this.searchResultDisplayFn,
     this.checkBoxActiveColor,
+    required this.showSearchError,
   }) : super(key: key);
 
   _DropdownDialogState<T> createState() => _DropdownDialogState<T>();
@@ -359,6 +363,7 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
           updateParentWithOptionalPop: updateParentWithOptionalPop,
           valid: valid,
           validResult: validResult,
+          showSearchError: widget.showSearchError,
         ),
         searchBar(),
         listWithPagination(),
@@ -404,6 +409,7 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
                     updateParentWithOptionalPop: updateParentWithOptionalPop,
                     valid: valid,
                     validResult: validResult,
+                    showSearchError: widget.showSearchError,
                   ),
                   closeButtonWrapper(),
                 ],

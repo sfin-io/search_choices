@@ -302,6 +302,10 @@ class SearchChoices<T> extends FormField<T> {
   /// [autovalidateMode] as in FormField.
   final AutovalidateMode autovalidateMode;
 
+  /// [showSearchError] [bool] whether to let the user show error message
+  /// on search dialog
+  final bool showSearchError;
+
   /// [restorationId] as in FormField.
   final String? restorationId;
 
@@ -589,6 +593,7 @@ class SearchChoices<T> extends FormField<T> {
     this.buildFutureFilterOrOrderButton,
     this.searchResultDisplayFn,
     this.checkBoxActiveColor,
+    this.showSearchError = false,
   })  : multipleSelection = false,
         selectedItems = const [],
         futureSelectedValues = null,
@@ -809,6 +814,7 @@ class SearchChoices<T> extends FormField<T> {
     this.buildFutureFilterOrOrderButton,
     this.searchResultDisplayFn,
     this.checkBoxActiveColor,
+    this.showSearchError = false,
   })  : multipleSelection = true,
         value = null,
         super(
@@ -914,6 +920,7 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
               .titleMedium!
               .copyWith(color: _disabledIconColor)) ??
       TextStyle();
+
   bool get _enabled => widget.isEnabled;
 
   Color? get _enabledIconColor {
@@ -1160,6 +1167,7 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
         style: widget.style,
         iconEnabledColor: widget.iconEnabledColor,
         iconDisabledColor: widget.iconDisabledColor,
+        showSearchError: widget.showSearchError,
         callOnPop: () {
           giveMeThePop(() {});
           if (!widget.dialogBox &&
