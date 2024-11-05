@@ -378,6 +378,7 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
       child: Card(
         color: widget.menuBackgroundColor,
         margin: EdgeInsets.zero,
+        elevation: 0,
         child: Container(
           constraints: widget.menuConstraints,
           padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),

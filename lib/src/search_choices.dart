@@ -1221,6 +1221,7 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
         await showDialog(
             context: context,
             barrierDismissible: true,
+            barrierColor: widget.menuBackgroundColor,
             builder: (BuildContext dialogContext) {
               return (menuWidget(searchTerms: searchTerms));
             });
