@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:search_choices/search_choices.dart';
 import 'title_bar.dart';
 
@@ -623,6 +624,10 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
   /// Closes the dialog box or the menu depending on the selected mode.
   pop() {
     if (widget.dialogBox) {
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.light, // For Android (light icons)
+        statusBarBrightness: Brightness.dark, // For iOS (light icons)
+      ));
       Navigator.pop(context);
     } else {
       widget.displayMenu.value = false;

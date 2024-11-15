@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:search_choices/search_choices.dart';
 import 'dart:core';
 
@@ -1218,6 +1219,10 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
           searchTerms,
         );
       } else {
+        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+          statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        ));
         await showDialog(
             context: context,
             barrierDismissible: true,
