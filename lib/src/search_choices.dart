@@ -1414,12 +1414,10 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
         selectionIsValid: valid,
       );
     } else if (widget.fieldDecoration != null) {
-      fieldPresentation = Padding(
-        padding: treatedPadding,
-        child: Container(
-          decoration: widget.fieldDecoration,
-          child: result,
-        ),
+      fieldPresentation = Container(
+        padding: EdgeInsets.symmetric(horizontal: 8),
+        decoration: widget.fieldDecoration,
+        child: result,
       );
     } else {
       fieldPresentation = Stack(
@@ -1456,11 +1454,14 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
         fieldPresentation,
         ((validatorOutput == null)
             ? SizedBox.shrink()
-            : Text(
-                validatorOutput,
-                textDirection:
-                    rightToLeft ? TextDirection.rtl : TextDirection.ltr,
-                style: TextStyle(color: Colors.red, fontSize: 13),
+            : Container(
+                margin: EdgeInsets.only(left: 8, top: 8),
+                child: Text(
+                  validatorOutput,
+                  textDirection:
+                      rightToLeft ? TextDirection.rtl : TextDirection.ltr,
+                  style: TextStyle(color: Colors.red[900], fontSize: 12),
+                ),
               )),
         displayMenu.value ? menuWidget() : SizedBox.shrink(),
       ],
