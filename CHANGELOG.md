@@ -1,3 +1,7 @@
+## 2.3.1
+
+* Switched to checkout v4 for CI/CD.
+
 ## 2.3.0
 
 * Compatibility with Flutter 3.27 . Thanks @23doors https://github.com/lcuis/search_choices/issues/130
