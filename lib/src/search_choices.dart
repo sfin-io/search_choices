@@ -1394,7 +1394,7 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
       ),
     );
 
-    final double bottom = 8.0;
+    final double bottom = 0;
     String? validatorOutput = validResult;
     Widget? labelOutput = prepareWidget(widget.label, parameter: selectedResult,
         stringToWidgetFunction: (string) {
