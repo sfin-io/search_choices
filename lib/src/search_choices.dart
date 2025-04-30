@@ -344,7 +344,7 @@ class SearchChoices<T> extends FormField<T> {
   ///               displayItem,
   ///         }) {
   ///           return Expanded(
-  ///               child: itemsToDisplay.length == 0
+  ///               child: itemsToDisplay.isEmpty
   ///                   ? emptyListWidget
   ///                   : SingleChildScrollView(
   ///                       child: Wrap(
@@ -441,8 +441,6 @@ class SearchChoices<T> extends FormField<T> {
   /// * [keyboardType] used for the search.
   /// * [validator] [Function] with parameter: __value__ returning [String]
   /// displayed below selected value when not valid and null when valid.
-  /// * [assertUniqueValue] whether to run a consistency check of the list of
-  /// items.
   /// * [displayItem] [Function] with parameters: __item__, __selected__
   /// returning [Widget] to be displayed in the search list.
   /// * [dialogBox] whether the search should be displayed as a dialog box or as
@@ -559,7 +557,6 @@ class SearchChoices<T> extends FormField<T> {
     this.selectedValueWidgetFn,
     this.keyboardType = TextInputType.text,
     this.validator,
-    @deprecated bool assertUniqueValue = true,
     this.displayItem,
     this.dialogBox = true,
     this.menuConstraints,
@@ -873,8 +870,6 @@ class SearchChoices<T> extends FormField<T> {
         "use either underline or fieldDecoration");
     assert(fieldPresentationFn == null || underline == null,
         "use either underline or fieldPresentationFn");
-    assert(fieldDecoration == null || padding == null,
-        "use either padding or fieldDecoration");
     assert(fieldPresentationFn == null || padding == null,
         "use either padding or fieldPresentationFn");
     assert(dialogBox || showDialogFn == null,
@@ -1089,7 +1084,10 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
         } catch (e) {
           try {
             widget.onChanged!(selection, onChangeContext, pop);
-          } catch (e) {}
+          } catch (e) {
+            debugPrint(
+                "Warning: Unexpected arguments passed while running sendSelection in search_choices.");
+          }
         }
       }
     }

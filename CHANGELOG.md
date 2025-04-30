@@ -1,3 +1,27 @@
+## 2.3.1
+
+* Switched to checkout v4 for CI/CD.
+
+## 2.3.0
+
+* Compatibility with Flutter 3.27 . Thanks @23doors https://github.com/lcuis/search_choices/issues/130
+
+## 2.2.11
+
+* Removed the kotlin.jvmToolchain specification from the build.gradle . Thanks @pnilkanth12 https://github.com/lcuis/search_choices/issues/128
+
+## 2.2.10
+
+* Got rid of deprecated code assertUniqueValue and added warning on sendSelection caught execution.
+
+## 2.2.9
+
+* Removed assert that prevented the use of padding with fieldDecoration. Thanks @nikpelgr https://github.com/lcuis/search_choices/issues/127
+
+## 2.2.8
+
+* Upgraded to Gradle 8.6.0, Kotlin 2.0.20 and JVM 1.8. Thanks @snmeric https://github.com/lcuis/search_choices/pull/126
+
 ## 2.2.7
 
 * lints and dependabot issues corrected

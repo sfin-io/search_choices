@@ -1,6 +1,6 @@
 name: search_choices
 description: Highly customizable Widget to search through a single or multiple choices list in a dialog box or a menu. Supports pagination, future/API/webservice searches with sort and filter.
-version: 2.2.7
+version: 2.3.1
 homepage: https://github.com/lcuis/search_choices
 repository: https://github.com/lcuis/search_choices
 issue_tracker: https://github.com/lcuis/search_choices/issues
@@ -27,26 +27,27 @@ flutter:
   # The androidPackage and pluginClass identifiers should not ordinarily
   # be modified. They are used by the tooling to maintain consistency when
   # adding or updating assets for this project.
-  plugin:
-    platforms:
-      android:
-        package: li.jod.search_choices
-        pluginClass: SearchChoicesPlugin
-      ios:
-        pluginClass: SearchChoicesPlugin
-      macos:
-        pluginClass: SearchChoicesPlugin
-        default_package: search_choices
-      linux:
-        pluginClass: SearchChoicesPlugin
-        default_package: search_choices
-      windows:
-        pluginClass: SearchChoicesPlugin
-        default_package: search_choices
-      web:
-        pluginClass: SearchChoicesPlugin
-        fileName: search_choices.dart
-        default_package: search_choices
+#  plugin:
+#    platforms:
+#      android:
+#        package: li.jod.search_choices
+#        dartPluginClass: SearchChoicesPlugin
+#      ios:
+#        dartPluginClass: SearchChoicesPlugin
+#      #macos:
+#        #pluginClass: SearchChoicesPlugin
+#        #dartPluginClass: SearchChoicesPlugin
+#        #default_package: search_choices
+#      linux:
+#        dartPluginClass: SearchChoicesPlugin
+#        #default_package: search_choices
+#      windows:
+#        dartPluginClass: SearchChoicesPlugin
+#        #default_package: search_choices
+#      web:
+#        pluginClass: SearchChoicesPlugin
+#        fileName: search_choices.dart
+#        default_package: search_choices
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

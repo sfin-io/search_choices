@@ -488,11 +488,10 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
             latestFutureSearchArgs![1] == (orderBy.value ?? "") &&
             latestFutureSearchArgs![2] == (orderAsc.value ?? true) &&
             latestFutureSearchArgs![4] == (widget.currentPage?.value ?? 1))) {
-      if ((filters.value == null || filters.value?.length == 0) &&
+      if ((filters.value == null || (filters.value?.isEmpty ?? true)) &&
           (latestFutureSearchArgs![3] == null ||
               (latestFutureSearchArgs![3] as List<Tuple2<String, String>>)
-                      .length ==
-                  0)) {
+                  .isEmpty)) {
         filtersMatch = true;
       } else {
         filtersMatch = true;
@@ -761,7 +760,7 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
       child: Scrollbar(
         controller: widget.listScrollController,
         thumbVisibility: widget.itemsPerPage == null ? false : true,
-        child: itemsToDisplay.length == 0
+        child: itemsToDisplay.isEmpty
             ? emptyList()
             : ListView.builder(
                 controller: widget.listScrollController,
@@ -985,7 +984,7 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
           if (snapshot.connectionState == ConnectionState.done) {
             Tuple2<List<DropdownMenuItem>, int> data = snapshot.data!;
             int nbResults = data.item2;
-            if (data.item1.length == 0) {
+            if (data.item1.isEmpty) {
               return (Column(children: [
                 SizedBox(height: 15),
                 Center(
