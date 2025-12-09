@@ -314,6 +314,8 @@ class SearchChoices<T> extends FormField<T> {
   /// dialog can be closed from outside the widget.
   final Function(Function pop)? giveMeThePop;
 
+  final bool isDarkMode;
+
   /// [buildFutureFilterOrOrderButton] [Function] to customize the order and
   /// filter button in case of future search. Where:
   /// * [filter] is true if building filter button and false while building
@@ -591,6 +593,7 @@ class SearchChoices<T> extends FormField<T> {
     this.buildFutureFilterOrOrderButton,
     this.searchResultDisplayFn,
     this.checkBoxActiveColor,
+    this.isDarkMode = false,
     this.showSearchError = false,
   })  : multipleSelection = false,
         selectedItems = const [],
@@ -812,6 +815,7 @@ class SearchChoices<T> extends FormField<T> {
     this.buildFutureFilterOrOrderButton,
     this.searchResultDisplayFn,
     this.checkBoxActiveColor,
+    this.isDarkMode = false,
     this.showSearchError = false,
   })  : multipleSelection = true,
         value = null,
@@ -1217,16 +1221,18 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
           searchTerms,
         );
       } else {
-        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-          statusBarBrightness: Brightness.light, // For iOS (dark icons)
-        ));
         await showDialog(
             context: context,
             barrierDismissible: true,
+            useSafeArea: false,
             barrierColor: widget.menuBackgroundColor,
             builder: (BuildContext dialogContext) {
-              return (menuWidget(searchTerms: searchTerms));
+              return AnnotatedRegion<SystemUiOverlayStyle>(
+                  value: widget.isDarkMode
+                      ? SystemUiOverlayStyle.light
+                      : SystemUiOverlayStyle.dark,
+                  child:
+                      SafeArea(child: (menuWidget(searchTerms: searchTerms))));
             });
       }
       if (widget.onChanged != null && selectedResult != null) {
