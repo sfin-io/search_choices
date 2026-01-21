@@ -1339,6 +1339,38 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
                 widget.isExpanded
                     ? Expanded(child: innerItemsWidget)
                     : innerItemsWidget,
+                !widget.displayClearIcon
+                    ? SizedBox()
+                    : InkWell(
+                        onTap: hasSelection && _enabled && !widget.readOnly
+                            ? () {
+                                clearSelection();
+                              }
+                            : null,
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Row(
+                            textDirection: rightToLeft
+                                ? TextDirection.rtl
+                                : TextDirection.ltr,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              IconTheme(
+                                data: IconThemeData(
+                                  color: hasSelection &&
+                                          _enabled &&
+                                          !widget.readOnly
+                                      ? _enabledIconColor
+                                      : _disabledIconColor,
+                                  size: widget.iconSize,
+                                ),
+                                child: widget.clearIcon,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                 IconTheme(
                   data: IconThemeData(
                     color: _iconColor,
@@ -1363,36 +1395,6 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
             widget.isExpanded
                 ? Expanded(child: clickable ?? SizedBox.shrink())
                 : clickable ?? SizedBox.shrink(),
-            !widget.displayClearIcon
-                ? SizedBox()
-                : InkWell(
-                    onTap: hasSelection && _enabled && !widget.readOnly
-                        ? () {
-                            clearSelection();
-                          }
-                        : null,
-                    child: Container(
-                      padding: padding.resolve(Directionality.of(context)),
-                      child: Row(
-                        textDirection:
-                            rightToLeft ? TextDirection.rtl : TextDirection.ltr,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          IconTheme(
-                            data: IconThemeData(
-                              color:
-                                  hasSelection && _enabled && !widget.readOnly
-                                      ? _enabledIconColor
-                                      : _disabledIconColor,
-                              size: widget.iconSize,
-                            ),
-                            child: widget.clearIcon,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
           ],
         ),
       ),
