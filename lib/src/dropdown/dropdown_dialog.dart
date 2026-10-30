@@ -143,6 +143,9 @@ class DropdownDialog<T> extends StatefulWidget {
   /// See SearchChoices class.
   final int? searchDelay;
 
+  /// See SearchChoices class.
+  final bool searchOnSubmitOnly;
+
   /// Assigns the pop function.
   final Function giveMeThePop;
 
@@ -212,6 +215,7 @@ class DropdownDialog<T> extends StatefulWidget {
     this.onTap,
     this.futureSearchRetryButton,
     this.searchDelay,
+    this.searchOnSubmitOnly = false,
     required this.giveMeThePop,
     this.clearSearchIcon,
     this.listValidator,
@@ -574,10 +578,23 @@ class _DropdownDialogState<T> extends State<DropdownDialog> {
             style: widget.style,
             autofocus: widget.autofocus,
             onChanged: (value) {
+              if (widget.searchOnSubmitOnly) {
+                setState(() {});
+                return;
+              }
               widget.currentPage?.value = 1;
               searchForKeyword(value);
               setState(() {});
             },
+            textInputAction:
+                widget.searchOnSubmitOnly ? TextInputAction.done : null,
+            onSubmitted: widget.searchOnSubmitOnly
+                ? (value) {
+                    widget.currentPage?.value = 1;
+                    searchForKeyword(value, immediate: true);
+                    setState(() {});
+                  }
+                : null,
             keyboardType: widget.keyboardType,
           ),
           txtSearch.text.isNotEmpty

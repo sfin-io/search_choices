@@ -271,6 +271,10 @@ class SearchChoices<T> extends FormField<T> {
   /// initiated. This applies to future and non-future searches.
   final int? searchDelay;
 
+  /// [searchOnSubmitOnly] [bool] when true, the search runs only when the
+  /// user submits the keyboard (done) instead of on every keystroke.
+  final bool searchOnSubmitOnly;
+
   /// [fieldPresentationFn] [Function] returning a Widget to customize the
   /// display of the field.
   final Widget Function(Widget fieldWidget, {bool selectionIsValid})?
@@ -510,6 +514,8 @@ class SearchChoices<T> extends FormField<T> {
   /// retry button displayed when there is an issue with the future search.
   /// * [searchDelay] [int] in milliseconds applied before the search is
   /// initiated. This applies to future and non-future searches.
+  /// * [searchOnSubmitOnly] [bool] when true, the search runs only when the
+  /// user submits the keyboard (done) instead of on every keystroke.
   /// * [fieldPresentationFn] [Function] returning a Widget to customize the
   /// display of the field.
   /// * [fieldDecoration] [Decoration] is the decoration of the SearchChoices
@@ -582,6 +588,7 @@ class SearchChoices<T> extends FormField<T> {
     this.onTap,
     this.futureSearchRetryButton,
     this.searchDelay,
+    this.searchOnSubmitOnly = false,
     this.fieldPresentationFn,
     this.fieldDecoration,
     this.clearSearchIcon,
@@ -735,6 +742,8 @@ class SearchChoices<T> extends FormField<T> {
   /// retry button displayed when there is an issue with the future search.
   /// * [searchDelay] [int] in milliseconds applied before the search is
   /// initiated. This applies to future and non-future searches.
+  /// * [searchOnSubmitOnly] [bool] when true, the search runs only when the
+  /// user submits the keyboard (done) instead of on every keystroke.
   /// * [fieldPresentationFn] [Function] returning a Widget to customize the
   /// display of the field.
   /// * [fieldDecoration] [Decoration] is the decoration of the SearchChoices
@@ -803,6 +812,7 @@ class SearchChoices<T> extends FormField<T> {
     this.onTap,
     this.futureSearchRetryButton,
     this.searchDelay,
+    this.searchOnSubmitOnly = false,
     this.fieldPresentationFn,
     this.fieldDecoration,
     this.clearSearchIcon,
@@ -1201,6 +1211,7 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
         onTap: widget.onTap,
         futureSearchRetryButton: widget.futureSearchRetryButton,
         searchDelay: widget.searchDelay,
+        searchOnSubmitOnly: widget.searchOnSubmitOnly,
         giveMeThePop: giveMeThePop,
         clearSearchIcon: widget.clearSearchIcon,
         listValidator: widget.listValidator,
